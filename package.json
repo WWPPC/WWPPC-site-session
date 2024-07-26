@@ -11,8 +11,5 @@
   },
   "devDependencies": {
     "vite": "^5.3.1"
-  },
-  "dependencies": {
-    "cross-domain-storage": "^2.0.7"
   }
 }
