@@ -1,6 +1,5 @@
 window.addEventListener('message', (e) => {
-    console.log(e.origin)
-    if (!e.origin.endsWith('wwppc.tech') || e.data == null || typeof e.data.ev != 'string') return;
+    if (!e.origin.endsWith('wwppc.tech') || e.data == null || (typeof e.data.ev != 'string' && e.data != 'connect')) return;
     if (e.data === 'connect') {
         e.source.postMessage('connect', e.origin);
         return;
