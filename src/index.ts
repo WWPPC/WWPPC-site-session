@@ -1,10 +1,10 @@
 window.addEventListener('message', (e) => {
-    if (!e.origin.endsWith('wwppc.tech') || e.data == null || (typeof e.data.ev != 'string' && e.data != 'connect')) return;
+    if (e.source == null || !e.origin.endsWith('wwppc.tech') || e.data == null || (typeof e.data.ev != 'string' && e.data != 'connect')) return;
     if (e.data === 'connect') {
-        e.source.postMessage('connect', e.origin);
+        e.source.postMessage('connect', { targetOrigin: e.origin });
         return;
     }
-    const respond = (res) => e.source.postMessage({ ev: e.data.ev, res: res }, e.origin);
+    const respond = (res?: any) => e.source!.postMessage({ ev: e.data.ev, res: res }, { targetOrigin: e.origin });
     const action = e.data.ev.split(':')[0];
     switch (action) {
         case 'get':

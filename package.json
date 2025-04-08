@@ -3,10 +3,13 @@
     "private": true,
     "version": "0.0.0",
     "scripts": {
-        "dev": "node static.js",
-        "deploy": "firebase deploy --only hosting:session-wwppc"
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "deploy": "npm run build && firebase deploy --only hosting:session-wwppc"
     },
     "devDependencies": {
-        "express": "^4.19.2"
+        "typescript": "^5.8.3",
+        "vite": "^6.2.5"
     }
 }
