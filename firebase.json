@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "session-wwppc",
-    "public": "public",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
